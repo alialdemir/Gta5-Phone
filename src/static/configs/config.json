@@ -1,0 +1,68 @@
+{
+  "defaultLanguage": "tr_TR",
+  "background_default": {
+    "label": "Dog",
+    "value": "/images/default_background.jpg"
+  },
+  "apps": [
+    {
+      "name": "Telefon",
+      "src": "/icon/apple-phone.svg?raw",
+      "inHomePage": true,
+      "url": "/Phone"
+    },
+    {
+      "name": "Mesajlar",
+      "src": "/icon/ios-message.svg?raw",
+      "inHomePage": true,
+      "url": "/"
+    },
+    {
+      "name": "Safari",
+      "src": "/icon/safari.svg?raw",
+      "inHomePage": true,
+      "url": "/"
+    },
+    {
+      "name": "Whatsapp",
+      "src": "/icon/whatsapp.svg?raw",
+      "inHomePage": true,
+      "url": "/"
+    },
+    {
+      "name": "Hesapla",
+      "src": "/icon/calculator.svg?raw",
+      "url": "/calculator"
+    },
+    {
+      "name": "Kamera",
+      "src": "/icon/camera.svg?raw",
+      "url": "/"
+    },
+    {
+      "name": "Alarm",
+      "src": "/icon/Clock.svg?raw",
+      "url": "/"
+    },
+    {
+      "name": "Gallery",
+      "src": "/icon/ios-photos.svg?raw",
+      "url": "/"
+    },
+    {
+      "name": "Email",
+      "src": "/icon/mail.svg?raw",
+      "url": "/"
+    },
+    {
+      "name": "Notlar",
+      "src": "/icon/notes.svg?raw",
+      "url": "/"
+    },
+    {
+      "name": "Ayarlar",
+      "src": "/icon/settings.svg?raw",
+      "url": "/Settings"
+    }
+  ]
+}
