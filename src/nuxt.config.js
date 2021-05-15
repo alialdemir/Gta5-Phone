@@ -1,11 +1,8 @@
-//import Calculator from './components/apps/calculator/Calculator.vue';
-
 module.exports = {
   // Nuxt modules
   modules: [
     'nuxt7',
     '@nuxtjs/pwa',
-    '@nuxtjs/axios'
   ],
 
   // PWA manifest
@@ -15,6 +12,12 @@ module.exports = {
     description: ''
   },
 
+  tailwindcss: {
+    jit: true
+  },
+
+  target: 'static',
+
   // Framework7 Config
   framework7: {
   },
@@ -22,7 +25,6 @@ module.exports = {
   // Modules for dev and build (recommended): https://go.nuxtjs.dev/config-modules
   buildModules: [
     // https://go.nuxtjs.dev/tailwindcss
-    '@nuxtjs/tailwindcss',
   ],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
@@ -32,9 +34,14 @@ module.exports = {
     { path: '~/components/app-icon/', prefix: 'gta-' },
     { path: '~/components/apps/calculator/', prefix: 'gta-' },
     { path: '~/components/apps/phone/', prefix: 'gta-' },
-    { path: '~/components/apps/phone/contatc/', prefix: 'gta-' },
+    { path: '~/components/apps/phone/contact/', prefix: 'gta-' },
     { path: '~/components/apps/photos/', prefix: 'gta-' },
+    { path: '~/components/list/', prefix: 'gta-' },
   ],
+
+  axios: {
+    baseURL: '/',
+  },
 
   // Build configuration
   build: {
@@ -45,7 +52,7 @@ module.exports = {
     },
 
     // Extract CSS in a separated file
-    extractCSS: true,
+    extractCSS: false,
 
     // You can extend webpack config here
     extend(config) {
@@ -55,6 +62,11 @@ module.exports = {
 
   // Additional CSS configuration
   css: [
-    './assets/app.css'
-  ]
+    'tailwindcss/dist/utilities.min.css'
+  ],
+
+  server: {
+    host: '0' // default: localhost
+  }
+
 }

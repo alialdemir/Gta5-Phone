@@ -1,18 +1,18 @@
 <template>
   <f7-page>
-    <div class="gta-calculator js-calculator">
+    <div class="gta-calculator">
       <div class="gta-calculator__header">
-        <div class="gta-calculator__value js-calculator__value">
-          <h1 class="mt-0">
-            <pre>{{ current }}</pre>
+        <div class="gta-calculator__value">
+          <h1 class="m-0">
+            {{ current }}
           </h1>
-          <h2>
-            <pre>{{total}}<span v-if="selected"> {{selected}}</span></pre>
+          <h2 class="m-0">
+            {{ total }}<span v-if="selected"> {{ selected }}</span>
           </h2>
         </div>
       </div>
 
-      <div class="gta-calculator__body js-calculator__body">
+      <div class="gta-calculator__body">
         <gta-number-button
           color="gray-slate"
           v-show="current === 0"
@@ -139,9 +139,8 @@ export default {
 .gta-calculator {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  grid-template-rows: repeat(5, 1fr);
+  grid-template-rows: repeat(2, 1fr);
   grid-gap: @calculator-spacing;
-  // height: 100vh;
   padding: (@calculator-spacing * 2);
   background-color: #000;
   color: @calculator-color-white;
@@ -163,7 +162,7 @@ export default {
 }
 
 .gta-calculator__body {
-  grid-row: span 20;
+  grid-row: span 55;
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   grid-template-rows: repeat(5, 1fr);
@@ -171,7 +170,7 @@ export default {
 }
 
 .gta-calculator__value {
-  font-size: 3.4em;
+  font-size: 2.4em;
   text-align: right;
 }
 

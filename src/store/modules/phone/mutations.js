@@ -7,4 +7,8 @@ export default {
     SET_CONFIG(state, config) {
         state.config = config
     },
+
+    setApps(state, apps) {
+        state.apps = apps;
+    },
 };

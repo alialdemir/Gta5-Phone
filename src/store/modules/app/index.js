@@ -3,7 +3,6 @@ import getters from './getters';
 import mutations from './mutations';
 
 const defaultState = {
-    apps: [],
 
     isPhoneShow:true,
 }

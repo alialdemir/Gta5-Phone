@@ -2,7 +2,7 @@
   <f7-page :page-content="false">
     <div class="gta-tab-keypad mt-6">
       <div style="height: 50px">
-        <div class="text-center font-bold mt-6">{{ phoneNumber }}</div>
+        <div class="text-center font-bold mt-6 text-3xl">{{ phoneNumber }}</div>
         <f7-button class="capitalize" v-show="phoneNumber"
           >Kişilere Ekle</f7-button
         >
@@ -17,7 +17,7 @@
         >
         <div></div>
 
-        <gta-number-button color="green">
+        <gta-number-button color="green" @click="call">
           <f7-icon f7="phone_fill" size="32px" color="white"></f7-icon>
         </gta-number-button>
 
@@ -58,17 +58,18 @@ export default {
 
   methods: {
     call() {
-      setTimeout(() => {
-        this.$store.dispatch('onplaySound', {
-          sound: '/sound/PhoneCallSound.ogg',
+      if (this.phoneNumber) {
+        this.$f7.views.main.router.navigate({
+          name: 'Calling',
+          params: { phoneNumber: this.phoneNumber },
         });
-      }, 1000);
+      }
     },
 
     setPhoneNumber(number) {
       this.phoneNumber += number;
 
-      this.$store.dispatch('onplaySound', {
+      this.$store.dispatch('playSound', {
         sound: '/sound/KeypadClick.ogg',
         loop: false,
       });
@@ -85,14 +86,12 @@ export default {
 </script>
 
 <style lang="less">
-@calculator-spacing: 1.5em;
-
 .gta-tab-keypad {
   &__number {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     grid-template-rows: repeat(5, 1fr);
-    grid-gap: @calculator-spacing;
+    grid-gap: 1.5em;
     padding: 1em;
     padding-bottom: 0;
   }

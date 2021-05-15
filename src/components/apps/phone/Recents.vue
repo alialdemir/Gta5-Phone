@@ -5,7 +5,7 @@
       <f7-button tab-link="#tab2">Gelen</f7-button>
     </f7-segmented>
 
-    <f7-block-title class="mt-4">Son Aramalar</f7-block-title>
+    <h1 class="mt-4 mb-0">Son Aramalar</h1>
 
     <f7-tabs>
       <f7-tab id="tab1" tab-active class="page-content">

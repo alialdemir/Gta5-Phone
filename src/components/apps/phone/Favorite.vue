@@ -14,7 +14,7 @@
 
     <f7-block-title class="mt-4">Favoriler</f7-block-title>
     <f7-list media-list>
-      <f7-list-item title="555 555 55 55">
+      <f7-list-item title="666 555 55 55">
         <template #media>
           <f7-icon f7="info_circle" size="22px" color="blue"></f7-icon>
         </template>

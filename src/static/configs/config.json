@@ -2,67 +2,65 @@
   "defaultLanguage": "tr_TR",
   "background_default": {
     "label": "Dog",
-    "value": "/images/default_background.jpg"
+    "value": "http://192.168.1.180:3000/images/default_background.jpg"
+  },
+  "account": {
+    "fullname": "Ronnie Reuben",
+    "profilePicture": "http://192.168.1.180:3000/images/avatar.svg",
+    "phoneNumber":"820362"
   },
   "apps": [
     {
       "name": "Telefon",
-      "src": "/icon/apple-phone.svg?raw",
+      "src": "http://192.168.1.180:3000/icon/apple-phone.svg?raw",
       "inHomePage": true,
-      "url": "/Phone"
+      "url": "/Phone",
+      "isNotification": false
     },
     {
       "name": "Mesajlar",
-      "src": "/icon/ios-message.svg?raw",
+      "src": "http://192.168.1.180:3000/icon/ios-message.svg?raw",
       "inHomePage": true,
-      "url": "/"
-    },
-    {
-      "name": "Safari",
-      "src": "/icon/safari.svg?raw",
-      "inHomePage": true,
-      "url": "/"
-    },
-    {
-      "name": "Whatsapp",
-      "src": "/icon/whatsapp.svg?raw",
-      "inHomePage": true,
-      "url": "/"
+      "url": "/Messages",
+      "isNotification": true
     },
     {
       "name": "Hesapla",
-      "src": "/icon/calculator.svg?raw",
-      "url": "/calculator"
+      "src": "http://192.168.1.180:3000/icon/calculator.svg?raw",
+      "url": "/calculator",
+      "isNotification": false
     },
     {
       "name": "Kamera",
-      "src": "/icon/camera.svg?raw",
-      "url": "/"
-    },
-    {
-      "name": "Alarm",
-      "src": "/icon/Clock.svg?raw",
-      "url": "/"
+      "src": "http://192.168.1.180:3000/icon/camera.svg?raw",
+      "url": "/",
+      "isNotification": false
     },
     {
       "name": "Gallery",
-      "src": "/icon/ios-photos.svg?raw",
-      "url": "/"
+      "src": "http://192.168.1.180:3000/icon/ios-photos.svg?raw",
+      "url": "/Photos",
+      "isNotification": false
     },
     {
-      "name": "Email",
-      "src": "/icon/mail.svg?raw",
-      "url": "/"
-    },
-    {
-      "name": "Notlar",
-      "src": "/icon/notes.svg?raw",
-      "url": "/"
+      "name": "Safari",
+      "src": "http://192.168.1.180:3000/icon/safari.svg?raw",
+      "inHomePage": true,
+      "url": "/",
+      "isNotification": false
     },
     {
       "name": "Ayarlar",
-      "src": "/icon/settings.svg?raw",
-      "url": "/Settings"
+      "src": "http://192.168.1.180:3000/icon/settings.svg?raw",
+      "url": "/Settings",
+      "isNotification": false
+    },
+    {
+      "name": "Whatsapp",
+      "src": "http://192.168.1.180:3000/icon/whatsapp.svg?raw",
+      "inHomePage": true,
+      "url": "/Whatsapp",
+      "isNotification": true
     }
   ]
 }

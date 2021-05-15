@@ -1,7 +1,7 @@
 <template>
   <f7-page>
     <div
-      class="main pt-3 h-full"
+      class="main pt-3 h-full bg-cover bg-repeat"
       :style="{
         'background-image': 'url(' + config.background_default.value + ')',
       }"
@@ -46,28 +46,26 @@ export default {
       return (this.apps || []).filter((item) => item.inHomePage);
     },
   },
-
-  created() {
-    this.$store.dispatch('getApps');
-  },
 };
 </script>
 
 <style lang="less">
-.main__apps {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  grid-template-rows: repeat(7, 1fr);
-
-  &-bottom {
+.main {
+  &__apps {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    grid-template-rows: repeat(1, 1fr);
-  }
-}
+    grid-template-rows: repeat(7, 1fr);
 
-.main__apps > div {
-  text-align: center;
+    &-bottom {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      grid-template-rows: repeat(1, 1fr);
+    }
+
+    & > div {
+      text-align: center;
+    }
+  }
 }
 </style>
 

@@ -1,5 +1,5 @@
 <template>
-  <f7-app v-bind="f7params" theme-dark>
+  <f7-app v-bind="f7params">
     <mobile-phone>
       <f7-view main url="/"></f7-view>
     </mobile-phone>
@@ -8,50 +8,21 @@
 
 
 <script>
-/* Import pages components */
-import HomePage from '../pages/index';
-import Calculator from '../components/apps/calculator/Calculator';
-import PhoneTab from '../components/apps/phone/PhoneTab';
-import ContactDetail from '../components/apps/phone/contact/ContactDetail';
-import PhotoContainer from '../components/apps/photos/PhotoContainer';
-
-/*
-  Now we need to map components to routes.
-  We need to pass them along with the F7 app parameters to <f7-app> component
-  */
-
+import Routers from '../router';
 export default {
   data() {
     return {
-      // app params
       f7params: {
-        name: 'My App',
-        id: 'com.myapp.test',
-        // specify routes for app
-        routes: [
-          {
-            path: '/',
-            component: HomePage,
-          },
-          {
-            path: '/Calculator',
-            component: Calculator,
-          },
-          {
-            path: '/Phone',
-            component: PhoneTab,
-          },
-          {
-            path: '/ContactDetail',
-            component: ContactDetail,
-          },
-          {
-            path: '/Photos',
-            component: PhotoContainer,
-          },
-        ],
+        theme: 'ios',
+        routes: Routers,
       },
     };
+  },
+
+  created() {
+    this.$store.dispatch('loadConfig');
+    this.$store.dispatch('eventListener');
+    this.$store.dispatch('forceIosTheme');
   },
 };
 </script>

@@ -7,6 +7,7 @@
         'gta-number-button__content-gray': color === 'gray',
         'gta-number-button__content-green': color === 'green',
         'gta-number-button__content-orange': color === 'orange',
+        'gta-number-button__content-red': color === 'red',
         'gta-number-button__content-gray-slate': color === 'gray-slate',
       }"
       class="gta-number-button__content"
@@ -43,6 +44,8 @@ export default {
 <style lang="less">
 @calculator-spacing: 0.5em;
 @calculator-color-apricot: #ff9403;
+@calculator-color-red: #ff3b30;
+@calculator-color-slate-red: #ff1b30;
 @calculator-color-black: #000;
 @calculator-color-charcoal: #333333;
 @calculator-color-green: rgb(52, 199, 89);
@@ -101,6 +104,15 @@ export default {
 
       &:active {
         background-color: @calculator-color-white;
+      }
+    }
+
+    &-red {
+      background-color: @calculator-color-red;
+      color: @calculator-color-white;
+
+      &:active {
+        background-color: @calculator-color-slate-red;
       }
     }
 

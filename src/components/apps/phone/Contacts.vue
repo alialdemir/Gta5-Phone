@@ -23,7 +23,7 @@
     <f7-list class="searchbar-not-found">
       <f7-list-item title="Nothing found"></f7-list-item>
     </f7-list>
-    <f7-list contacts-list class="mb-5">
+    <f7-list contacts-list class="mb-5 gta-contacts__list">
       <f7-list-group>
         <f7-list-item title="A" group-title></f7-list-item>
         <f7-list-item title="Aaron"></f7-list-item>
@@ -207,3 +207,11 @@ export default {
   },
 };
 </script>
+
+<style lang="less" scoped>
+.gta-contacts {
+  &__list {
+    margin-top: 2.7rem;
+  }
+}
+</style>

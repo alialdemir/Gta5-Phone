@@ -1,21 +1,43 @@
 
+import Config from '../../../static/configs/config.json'
 
 export default {
     async loadConfig({ commit, }) {
-        // const config = await this.$axios.$get('/configs/config.json');
-        // if (process.env.NODE_ENV === 'production') {
-        //     commit('SET_CONFIG', JSON.parse(config))
-        // } else {
-        //     commit('SET_CONFIG', config)
-        // }
+        commit('SET_CONFIG', Config)
+        commit('setApps', Config.apps)
+    },
+
+    eventListener({ }) {
+        window.onload = () => {
+            window.addEventListener('message', (event) => {
+                const item = event.data;
+                if (item.show !== undefined) {
+                    store.commit('SET_PHONE_VISIBILITY', item.show)
+                }
+            });
+        };
     },
 
     setBackground({ commit }, background) {
         commit('SET_BACKGROUND', background)
     },
 
+    forceIosTheme({ }) {
+        const forceIosThemeInterval = setInterval(() => {
+            const htmlClassNameExistsMd = document.getElementsByTagName('html')[0].className.indexOf(' md device-pixel-ratio-2 device-desktop');
+            if (htmlClassNameExistsMd != -1) {
+                clearInterval(forceIosThemeInterval);
 
-    onplaySound({ state }, { sound, volume = 1, loop = true }) {
+                document.getElementsByTagName('html')[0].className =
+                    'ios-translucent-bars ios-translucent-modals device-pixel-ratio-3 device-ios theme-dark ios';
+
+                this.$f7.views[0].app.theme = 'ios';
+            }
+        }, 100);
+    },
+
+
+    playSound({ state }, { sound, volume = 1, loop = true }) {
         if (!sound) {
             return;
         }
@@ -26,13 +48,13 @@ export default {
         state.soundList[sound].play();
     },
 
-    onsetSoundVolume({ sound, volume = 1 }) {
+    setSoundVolume({ sound, volume = 1 }) {
         if (state.soundList[sound] !== undefined) {
             state.soundList[sound].volume = volume
         }
     },
 
-    onstopSound({ state }, { sound }) {
+    stopSound({ state }, { sound }) {
         if (state.soundList[sound] !== undefined) {
             state.soundList[sound].pause()
             delete state.soundList[sound]

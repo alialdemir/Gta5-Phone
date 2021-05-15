@@ -3,7 +3,10 @@ import getters from './getters';
 import mutations from './mutations';
 
 const defaultState = {
-    soundList:[],
+    soundList: [],
+
+    apps: [],
+
     config: {
         apps: [],
         language: {},
