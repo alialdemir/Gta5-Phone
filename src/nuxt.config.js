@@ -12,15 +12,10 @@ module.exports = {
     description: ''
   },
 
-  tailwindcss: {
-    jit: true
-  },
-
   target: 'static',
 
   // Framework7 Config
-  framework7: {
-  },
+  framework7: {},
 
   // Modules for dev and build (recommended): https://go.nuxtjs.dev/config-modules
   buildModules: [
@@ -52,17 +47,27 @@ module.exports = {
     },
 
     // Extract CSS in a separated file
-    extractCSS: false,
+    extractCSS: true,
 
     // You can extend webpack config here
     extend(config) {
       // ...
+    },
+
+    postcss: {
+      preset: {
+        features: {
+          // Fixes: https://github.com/tailwindcss/tailwindcss/issues/1190#issuecomment-546621554
+          "focus-within-pseudo-class": false
+        }
+      }
     }
   },
 
   // Additional CSS configuration
   css: [
-    'tailwindcss/dist/utilities.min.css'
+    '@/assets/css/tailwind.min.css'
+    // './assets/tailwind.min.css'
   ],
 
   server: {

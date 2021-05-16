@@ -7,12 +7,15 @@ export default {
         commit('setApps', Config.apps)
     },
 
-    eventListener({ }) {
+    eventListener({ dispatch, commit }) {
         window.onload = () => {
             window.addEventListener('message', (event) => {
                 const item = event.data;
-                if (item.show !== undefined) {
-                    store.commit('SET_PHONE_VISIBILITY', item.show)
+                if (item.dispatch !== undefined) {
+                    dispatch(item.dispatch, item.data)
+                }
+                else if (item.commit !== undefined) {
+                    commit(item.commit, item.data)
                 }
             });
         };
@@ -24,14 +27,15 @@ export default {
 
     forceIosTheme({ }) {
         const forceIosThemeInterval = setInterval(() => {
-            const htmlClassNameExistsMd = document.getElementsByTagName('html')[0].className.indexOf(' md device-pixel-ratio-2 device-desktop');
-            if (htmlClassNameExistsMd != -1) {
+            const darkModeClassNames = 'ios-translucent-bars ios-translucent-modals device-pixel-ratio-3 device-ios theme-dark ios';
+            const htmlElement = document.getElementsByTagName('html')[0];
+
+            if (htmlElement.className.indexOf(darkModeClassNames) === -1) {
                 clearInterval(forceIosThemeInterval);
 
-                document.getElementsByTagName('html')[0].className =
-                    'ios-translucent-bars ios-translucent-modals device-pixel-ratio-3 device-ios theme-dark ios';
+                htmlElement.className = (darkModeClassNames);
 
-                this.$f7.views[0].app.theme = 'ios';
+                //  this.$f7.views[0].app.theme = 'ios';
             }
         }, 100);
     },

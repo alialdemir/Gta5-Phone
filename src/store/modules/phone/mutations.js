@@ -11,4 +11,8 @@ export default {
     setApps(state, apps) {
         state.apps = apps;
     },
+
+    toggleMobile(state) {
+        state.isShowMobile = !state.isShowMobile;
+    },
 };

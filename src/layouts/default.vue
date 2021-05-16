@@ -1,6 +1,6 @@
 <template>
   <f7-app v-bind="f7params">
-    <mobile-phone>
+    <mobile-phone v-show="isShowMobile">
       <f7-view main url="/"></f7-view>
     </mobile-phone>
   </f7-app>
@@ -9,7 +9,15 @@
 
 <script>
 import Routers from '../router';
+import { mapGetters } from 'vuex';
+
 export default {
+  computed: {
+    ...mapGetters({
+      isShowMobile: 'isShowMobile',
+    }),
+  },
+
   data() {
     return {
       f7params: {
@@ -26,7 +34,3 @@ export default {
   },
 };
 </script>
-
-<style>
-@import 'tailwindcss/dist/utilities.min.css';
-</style>
