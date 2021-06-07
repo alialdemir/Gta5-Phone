@@ -1,4 +1,4 @@
-# Gta5-Phone
+## Gta 5 oyunu için geliştirdiğim mobil telefon scripti
 
 > 
 
